@@ -20,6 +20,9 @@ public class RestartButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.anyKeyDown && bird.IsAlive()==false)   
+        {
+            bird.Reset();
+        }
     }
 }

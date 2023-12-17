@@ -119,7 +119,10 @@ public class Bird : MonoBehaviour
     {
         return score;    
     }
-
+    public bool IsAlive() 
+    {
+        return isAlive;
+    }
 
 
 
