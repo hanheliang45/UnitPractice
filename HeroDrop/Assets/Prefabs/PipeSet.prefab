@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756d298855ae0f348b4d4779103d05c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pipeSpeed: 3
+  hero: {fileID: 0}
+  pipeSpeed: 2
 --- !u!1 &6101111473854509920
 GameObject:
   m_ObjectHideFlags: 0

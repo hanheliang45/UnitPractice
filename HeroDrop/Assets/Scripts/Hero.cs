@@ -7,10 +7,11 @@ public class Hero : MonoBehaviour
 {
     public event EventHandler OnKill;
     [SerializeField] float heroSpeed;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();    
     }
 
     // Update is called once per frame
@@ -20,15 +21,23 @@ public class Hero : MonoBehaviour
         {
             Destroy(this.gameObject);
             OnKill?.Invoke(this, null);
+            
         }
-        if (Input.GetKey(KeyCode.RightArrow)) 
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            this.transform.position += new Vector3(Time.deltaTime*heroSpeed,0,0);
+            this.transform.position += new Vector3(Time.deltaTime * heroSpeed, 0, 0);
+            this.transform.rotation = Quaternion.Euler(0, 0, 0);
+            animator.SetBool("IsWalking", true);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             this.transform.position += new Vector3(Time.deltaTime * -heroSpeed, 0, 0);
-            
+            this.transform.rotation = Quaternion.Euler(0, 180, 0);
+            animator.SetBool("IsWalking", true);
+        }
+        else 
+        {
+            animator.SetBool("IsWalking", false);
         }
     }
 }
