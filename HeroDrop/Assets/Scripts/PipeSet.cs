@@ -17,10 +17,16 @@ public class PipeSet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Hero.instance.OnKill += Instance_OnKill;
         this.transform.position += new Vector3(0,Time.deltaTime*pipeSpeed,0);
         if (this.transform.position.y>15) 
         {
             Destroy(this.gameObject); 
         }
+    }
+
+    private void Instance_OnKill(object sender, System.EventArgs e)
+    {
+        pipeSpeed = -1; 
     }
 }

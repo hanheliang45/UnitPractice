@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
+    public static Hero instance;
+    private void Awake()
+    {
+        instance = this;
+    }
     public event EventHandler OnKill;
     [SerializeField] float heroSpeed;
     private Animator animator;
@@ -19,9 +24,9 @@ public class Hero : MonoBehaviour
     {
         if (this.transform.position.y > 4.83 || this.transform.position.y < -4.83)
         {
-            Destroy(this.gameObject);
-            OnKill?.Invoke(this, null);
             
+            OnKill?.Invoke(this, null);
+            animator.SetBool("IsAlive",false);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {

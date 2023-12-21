@@ -17,6 +17,7 @@ public class PipeSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Hero.instance.OnKill += Instance_OnKill;
         if (stopWatch >= pipeSpawningSpeed)
         {
             Transform newPipeSet = Instantiate(copy.transform,transform);
@@ -25,5 +26,10 @@ public class PipeSpawner : MonoBehaviour
             stopWatch = 0;
         }
         stopWatch += Time.deltaTime;
+    }
+
+    private void Instance_OnKill(object sender, System.EventArgs e)
+    {
+        stopWatch -= Time.deltaTime*2;
     }
 }
