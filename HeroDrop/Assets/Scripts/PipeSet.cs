@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class PipeSet : MonoBehaviour
 {
+    public static PipeSet instance;
     [SerializeField] Hero hero;
     [SerializeField] float pipeSpeed;
-    private 
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -29,4 +33,14 @@ public class PipeSet : MonoBehaviour
     {
         pipeSpeed = -1; 
     }
+    public Transform GetPosition() 
+    {
+        return transform;
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Hero hero = collision.gameObject.GetComponent<Hero>();
+        hero.Sprinting();
+    }
+    
 }

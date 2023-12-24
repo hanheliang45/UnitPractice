@@ -5,13 +5,15 @@ using UnityEngine;
 public class PipeSpawner : MonoBehaviour
 {
     float stopWatch = 0;
+    float a;
+    [SerializeField] float pipeSpawningSpeedOffSet;
     [SerializeField] float offSet;
     [SerializeField] float pipeSpawningSpeed;
     [SerializeField] PipeSet copy;
     // Start is called before the first frame update
     void Start()
     {
-        
+         a = pipeSpawningSpeed;
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class PipeSpawner : MonoBehaviour
         if (stopWatch >= pipeSpawningSpeed)
         {
             Transform newPipeSet = Instantiate(copy.transform,transform);
-
+            pipeSpawningSpeed = a + (Random.Range(pipeSpawningSpeedOffSet, -pipeSpawningSpeedOffSet));
             newPipeSet.position += new Vector3(Random.Range(offSet,-offSet), 0,0);
             stopWatch = 0;
         }
