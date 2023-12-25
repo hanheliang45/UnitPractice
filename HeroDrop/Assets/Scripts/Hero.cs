@@ -88,4 +88,12 @@ public class Hero : MonoBehaviour
         canSprint = true;
         body.velocity =new Vector3(0,0,0);
     }
+    public void Die() 
+    {
+        OnKill?.Invoke(this, null);
+        animator.SetBool("IsAlive", false);
+        IsAlive = false;
+    }
+   
+
 }
