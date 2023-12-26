@@ -7,15 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class Hero : MonoBehaviour
 {
+    int scoreBox = 0;
+    bool i = true;
+    bool shield = false;
     bool IsAlive = true;
     bool canSprint = true;
     [SerializeField] TextMeshProUGUI scoreText;
     int score = 0;
+    [SerializeField] int shieldRechargeSpeed;
     public static Hero instance;
-    private void Awake()
-    {
-        instance = this;
-    }
+    [SerializeField] GameObject shieldVE;
     public event EventHandler OnKill;
     [SerializeField] float SprintingSpeed;
     [SerializeField] float heroSpeed;
@@ -26,6 +27,7 @@ public class Hero : MonoBehaviour
     {
         animator = GetComponent<Animator>();  
         body = GetComponent<Rigidbody2D>();
+        shieldVE.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,8 +72,21 @@ public class Hero : MonoBehaviour
             Hero.instance.Reset();
         }
 
-
-
+        if (i == true && scoreBox % shieldRechargeSpeed == 0 && scoreBox > 0)
+        {
+            shieldVE.SetActive(true);
+            shield = true;
+            scoreBox = 0;
+            i = false;
+        }
+        else 
+        {
+            //if (score % shieldRechargeSpeed == 0)
+            //{
+            //    shieldVE.SetActive(true);
+            //    shield = true;
+            //}
+        }
     }
 
     public void Reset()
@@ -81,7 +96,11 @@ public class Hero : MonoBehaviour
     public void AddScore() 
     {
         score++;
-        scoreText.text = score.ToString();  
+        scoreText.text = score.ToString();
+        if (i==true) 
+        {
+            scoreBox++;
+        }
     }
     public void Sprinting() 
     {
@@ -90,10 +109,23 @@ public class Hero : MonoBehaviour
     }
     public void Die() 
     {
+        if (shield == true)
+        {
+            shieldVE.SetActive(false);
+            
+            shield = false;
+            i = true;
+            return;
+        }
         OnKill?.Invoke(this, null);
         animator.SetBool("IsAlive", false);
         IsAlive = false;
     }
-   
+    private void Awake()
+    {
+        instance = this;
+        
+    }
+
 
 }
