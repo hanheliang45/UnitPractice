@@ -35,10 +35,20 @@ public class Hero : MonoBehaviour
     {
         if (this.transform.position.y > 4.83 || this.transform.position.y < -4.83)
         {
-            
-            OnKill?.Invoke(this, null);
-            animator.SetBool("IsAlive", false);
-            IsAlive = false;
+            if (this.transform.position.y < -4.83)
+            {
+                body.transform.position += Vector3.up * 2;
+                body.velocity = Vector3.up * 10;
+                body.velocity = Vector3.right * 10;
+                this.Die();
+                return;
+            }
+            else
+            {
+                OnKill?.Invoke(this, null);
+                animator.SetBool("IsAlive", false);
+                IsAlive = false;
+            }
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
