@@ -6,12 +6,12 @@ public class Enemy : MonoBehaviour
 {
     int targetid = 0;
     [SerializeField] float moveSpeed;
-    [SerializeField] Transform wayPoints;
+    
     private List<Transform> WayPointList; 
     private void Start()
     {
         WayPointList = new List<Transform>();
-        foreach (Transform t in wayPoints)
+        foreach (Transform t in WayPoints.instance.transform)
         { 
             WayPointList.Add(t);
         }

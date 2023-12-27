@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (stopWatch>=0.5) 
         {
-            Instantiate(enemy,this.transform);
+            Instantiate(enemy, this.transform);
             stopWatch = 0;
         }
         stopWatch += Time.deltaTime;
