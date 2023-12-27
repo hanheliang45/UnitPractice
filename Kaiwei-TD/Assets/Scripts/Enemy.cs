@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
+        
         this.MoveTo(WayPointList[targetid]);
         
     }
@@ -28,5 +29,15 @@ public class Enemy : MonoBehaviour
         Vector3 MyPosition = this.transform.position;
         Vector3 direction = (targetPosition - MyPosition).normalized;
         this.transform.position += direction * moveSpeed * Time.deltaTime;
+
+        if (Vector3.Distance(WayPointList[targetid].position, this.transform.position) < 0.05)
+        {
+            targetid = targetid + 1;
+            if (targetid == WayPointList.Count) 
+            {
+                Destroy(this.gameObject);
+                Debug.Log("!!!!!");
+            }
+        }
     }
 }
