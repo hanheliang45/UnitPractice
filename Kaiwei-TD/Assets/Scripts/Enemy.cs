@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         Vector3 realDirection = targetPosition - MyPosition;
         
         Vector3 myPositionOnFloor = new Vector3(MyPosition.x,targetPosition.y,MyPosition.z);
-        Vector3 direction = new Vector3(realDirection.x, myPositionOnFloor.y, realDirection.z).normalized;
+        Vector3 direction = new Vector3(realDirection.x, 0, realDirection.z).normalized;
         this.transform.position += direction * moveSpeed * Time.deltaTime;
 
         if (Vector3.Distance(targetPosition, myPositionOnFloor) < 0.05)
