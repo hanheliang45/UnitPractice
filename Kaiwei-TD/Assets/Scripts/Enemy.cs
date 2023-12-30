@@ -27,10 +27,13 @@ public class Enemy : MonoBehaviour
     {
         Vector3 targetPosition = target.position;
         Vector3 MyPosition = this.transform.position;
-        Vector3 direction = (targetPosition - MyPosition).normalized;
+        Vector3 realDirection = targetPosition - MyPosition;
+        
+        Vector3 myPositionOnFloor = new Vector3(MyPosition.x,targetPosition.y,MyPosition.z);
+        Vector3 direction = new Vector3(realDirection.x, myPositionOnFloor.y, realDirection.z).normalized;
         this.transform.position += direction * moveSpeed * Time.deltaTime;
 
-        if (Vector3.Distance(WayPointList[targetid].position, this.transform.position) < 0.05)
+        if (Vector3.Distance(targetPosition, myPositionOnFloor) < 0.05)
         {
             targetid = targetid + 1;
             if (targetid == WayPointList.Count) 

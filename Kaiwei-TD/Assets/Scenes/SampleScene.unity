@@ -5198,6 +5198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSpeed: 3
   enemy: {fileID: 6211043946805120877, guid: 14275787b2c117044b85b47699b94e69, type: 3}
+  EnemyY: 0.5
 --- !u!1001 &658540894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7301,7 +7302,7 @@ Transform:
   m_GameObject: {fileID: 1059747692}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3303413, y: -2.5647168, z: -2.3454034}
+  m_LocalPosition: {x: 4.48, y: -2.5647168, z: -2.3454034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
