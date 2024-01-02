@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] float range;
     [SerializeField] LayerMask enemyLayer;
+    [SerializeField] float aimSpeed;
     private Transform targetEnemy;
     // Start is called before the first frame update
     void Start()
@@ -27,9 +28,10 @@ public class Gun : MonoBehaviour
             return;
         }
         Vector3 direction = targetEnemy.transform.position-this.transform.position;
-        transform.forward = direction; 
+        //transform.forward = direction; 
+        Vector3 directionSmooth = Vector3.Lerp(transform.forward, direction, aimSpeed * Time.deltaTime  );
+        transform.forward = directionSmooth;
     }
-
     private void Aim() 
     {
         targetEnemy = null;
@@ -46,7 +48,6 @@ public class Gun : MonoBehaviour
             }
             
         }
-        Debug.Log(targetEnemy);
     }
 
     private void OnDrawGizmosSelected()
