@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 
 public class Gun : MonoBehaviour
 {
     [SerializeField] float range;
     [SerializeField] LayerMask enemyLayer;
+    private Transform targetEnemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +17,36 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.Aim();    
+        this.Aim();
+        this.Aiming();
     }
+    private void Aiming() 
+    {
+        if (this.targetEnemy == null) 
+        {
+            return;
+        }
+        Vector3 direction = targetEnemy.transform.position-this.transform.position;
+        transform.forward = direction; 
+    }
+
     private void Aim() 
     {
+        targetEnemy = null;
         Collider[] colliderList = Physics.OverlapSphere(transform.position, range,enemyLayer);
-        foreach (Collider i in colliderList)
+        float nearest = float.MaxValue;
+                                                    
+        foreach (Collider collider in colliderList)
         {
-            Debug.Log(colliderList.Length);    
+            float newEnemy = Vector3.Distance(transform.position, collider.transform.position);
+            if (newEnemy < nearest) 
+            {
+                targetEnemy = collider.transform;
+                nearest = newEnemy;
+            }
+            
         }
+        Debug.Log(targetEnemy);
     }
 
     private void OnDrawGizmosSelected()
