@@ -55,4 +55,8 @@ public class Gun : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+    public Transform GetEnemy() 
+    {
+        return this.targetEnemy;
+    }
 }

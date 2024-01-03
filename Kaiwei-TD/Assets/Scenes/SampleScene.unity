@@ -13327,6 +13327,41 @@ PrefabInstance:
       propertyPath: range
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5966478174099941522, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966478174099941522, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966478174099941522, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966478174099941522, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966478174099941522, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966478174099941522, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.538
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966478174099941522, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8054256185453626558, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13376,6 +13411,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824521447474274967, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
+        type: 3}
+      propertyPath: copy
+      value: 
+      objectReference: {fileID: 4060268071571343749, guid: 8b9cebd71bd0c2f429597ec3101fe9ff,
+        type: 3}
+    - target: {fileID: 8824521447474274967, guid: 3668bc6822c5ac342bcb110f65d9c2fc,
+        type: 3}
+      propertyPath: fireSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
