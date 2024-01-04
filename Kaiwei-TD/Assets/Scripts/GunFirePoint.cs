@@ -24,11 +24,14 @@ public class GunFirePoint : MonoBehaviour
         {
             return;
         }
-        if (stopWatch >= fireSpeed) 
+        if (stopWatch >= fireSpeed
+            //&& Input.GetKeyDown(KeyCode.T)
+            ) 
         {
             Debug.Log("Pew! Pew!! Pew!!!");
-            Instantiate(copy,transform);
+            Transform b = Instantiate(copy, transform.position, Quaternion.identity);
             stopWatch = 0;
+            b.GetComponent<Bullet>().SetEnemy(enemy);
         }
         stopWatch += Time.deltaTime;
 
