@@ -5,7 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float bulletSpeed; 
-    [SerializeField] Transform enemy;
+    Transform enemy;
+    [SerializeField] int bulletDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class Bullet : MonoBehaviour
         if (Vector3.Distance(Myposition, enemyP) <= 0.05)
         {
             Debug.Log("HIT!!!");
+            enemy.parent.GetComponent<Enemy>().TakeDamage(bulletDamage);
             Destroy(this.gameObject);
         }
         

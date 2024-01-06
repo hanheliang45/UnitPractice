@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 10
   enemy: {fileID: 6211043946805120877, guid: 14275787b2c117044b85b47699b94e69, type: 3}
+  bulletDamage: 30
 --- !u!1 &2259372998210637700
 GameObject:
   m_ObjectHideFlags: 0

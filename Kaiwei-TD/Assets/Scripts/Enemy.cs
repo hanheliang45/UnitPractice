@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] int health;
     int targetid = 0;
     [SerializeField] float moveSpeed;
+    int enemyHealth;
     
     private List<Transform> WayPointList; 
     private void Start()
     {
+    enemyHealth = health;
         WayPointList = new List<Transform>();
         foreach (Transform t in WayPoints.instance.transform)
         { 
@@ -42,6 +45,11 @@ public class Enemy : MonoBehaviour
                 Debug.Log("!!!!!");
             }
         }
+    }
+    public void TakeDamage(int damage) 
+    {
+        enemyHealth -= damage;
+        Debug.Log(enemyHealth);
     }
     
 }

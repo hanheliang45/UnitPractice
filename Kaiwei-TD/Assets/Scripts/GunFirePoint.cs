@@ -19,21 +19,18 @@ public class GunFirePoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        stopWatch += Time.deltaTime;
         Transform enemy = gun.GetEnemy();
         if (enemy == null) 
         {
             return;
         }
-        if (stopWatch >= fireSpeed
-            //&& Input.GetKeyDown(KeyCode.T)
-            ) 
+        if (stopWatch >= fireSpeed)
         {
             Debug.Log("Pew! Pew!! Pew!!!");
             Transform b = Instantiate(copy, transform.position, Quaternion.identity);
             stopWatch = 0;
             b.GetComponent<Bullet>().SetEnemy(enemy);
         }
-        stopWatch += Time.deltaTime;
-
     }
 }
