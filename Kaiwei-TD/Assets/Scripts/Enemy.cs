@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public event EventHandler<float> OnDamage;
     [SerializeField] int health;
     int targetid = 0;
     [SerializeField] float moveSpeed;
@@ -53,7 +55,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        Debug.Log(enemyHealth);
+        OnDamage?.Invoke(this,((float)enemyHealth)/health);
     }
     
 }
