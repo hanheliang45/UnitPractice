@@ -18,8 +18,9 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.Aim();
+        //this.Aim();
         this.Aiming();
+        this.Aim2();
     }
     private void Aiming() 
     {
@@ -34,7 +35,7 @@ public class Gun : MonoBehaviour
     }
     private void Aim() 
     {
-        targetEnemy = null;
+        //targetEnemy = null;
         Collider[] colliderList = Physics.OverlapSphere(transform.position, range,enemyLayer);
         float nearest = float.MaxValue;
                                                     
@@ -49,7 +50,21 @@ public class Gun : MonoBehaviour
             
         }
     }
-
+    private void Aim2() 
+    {
+        if (targetEnemy == null) 
+        {
+            this.Aim();
+        }
+        if (targetEnemy == null) 
+        {
+            return;
+        }
+        if (Vector3.Distance(targetEnemy.transform.position,transform.position)>range) 
+        {
+            targetEnemy = null;
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

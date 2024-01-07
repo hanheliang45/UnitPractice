@@ -16,6 +16,10 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemy == null) 
+        {
+            Destroy(this.gameObject);
+        }
         if (enemy == null) { return;     }
         Vector3 enemyP = enemy.position;
         Vector3 Myposition = this.transform.position;

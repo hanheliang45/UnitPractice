@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 5362091255748367293}
   copy: {fileID: 4060268071571343749, guid: 8b9cebd71bd0c2f429597ec3101fe9ff, type: 3}
-  fireSpeed: 0.01
+  fireSpeed: 0.5
 --- !u!1 &2057513644111222685
 GameObject:
   m_ObjectHideFlags: 0
