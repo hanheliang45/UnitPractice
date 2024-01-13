@@ -18,19 +18,19 @@ public class GameraController : MonoBehaviour
     private void Move() 
     {
         Vector3 MoveDirection = new Vector3(0, 0, 0);
-        if (Input.GetKey(KeyCode.UpArrow)) 
+        if (Input.GetKey(KeyCode.UpArrow) && transform.position.z <= 20) 
         {
-            MoveDirection += new Vector3(0, 0, 1);
+            MoveDirection += new Vector3(0, 0, 1) ;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) && transform.position.z >= -15)
         {
             MoveDirection += new Vector3(0, 0, -1);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x <= 20)
         {
             MoveDirection += new Vector3(1, 0, 0);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x >= -20)
         {
             MoveDirection += new Vector3(-1, 0, 0);
         }
