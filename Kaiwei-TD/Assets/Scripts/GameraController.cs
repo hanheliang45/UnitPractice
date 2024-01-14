@@ -24,19 +24,19 @@ public class GameraController : MonoBehaviour
     private void Move() 
     {
         Vector3 MoveDirection = new Vector3(0, 0, 0);
-        if (Input.GetKey(KeyCode.UpArrow) && transform.position.z <= 20) 
+        if (Input.GetKey(KeyCode.W) && transform.position.z <= 20) 
         {
             MoveDirection += new Vector3(0, 0, 1) ;
         }
-        if (Input.GetKey(KeyCode.DownArrow) && transform.position.z >= -15)
+        if (Input.GetKey(KeyCode.S) && transform.position.z >= -15)
         {
             MoveDirection += new Vector3(0, 0, -1);
         }
-        if (Input.GetKey(KeyCode.RightArrow) && transform.position.x <= 20)
+        if (Input.GetKey(KeyCode.D) && transform.position.x <= 20)
         {
             MoveDirection += new Vector3(1, 0, 0);
         }
-        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x >= -20)
+        if (Input.GetKey(KeyCode.A) && transform.position.x >= -20)
         {
             MoveDirection += new Vector3(-1, 0, 0);
         }
@@ -46,6 +46,14 @@ public class GameraController : MonoBehaviour
     public void Zoom() 
     {
         float scroll = -Input.mouseScrollDelta.y;
+        if (scroll > 0 && t.m_FollowOffset.y >= 30)
+        {
+            return;    
+        }
+        if (scroll < 0 && t.m_FollowOffset.y <= 5)
+        {
+            return;
+        }
         Vector3 ZoomDirection = new Vector3(0, scroll * 3, -scroll);
         t.m_FollowOffset += ZoomDirection * Time.deltaTime * 50;
     }
