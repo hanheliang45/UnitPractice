@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour
         Vector3 direction = new Vector3(realDirection.x, 0, realDirection.z).normalized;
         this.transform.position += direction * moveSpeed * Time.deltaTime;
 
+        this.transform.forward = direction;
+
         if (Vector3.Distance(targetPosition, myPositionOnFloor) < 0.05)
         {
             targetid = targetid + 1;

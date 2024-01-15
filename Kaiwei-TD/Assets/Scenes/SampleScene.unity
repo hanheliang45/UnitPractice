@@ -2551,7 +2551,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5847103, y: -0.000000019740355, z: 0.000000014228043, w: 0.8112422}
+  m_LocalRotation: {x: 0.5847103, y: 0.000000019740359, z: -0.0000000142280445, w: 0.8112422}
   m_LocalPosition: {x: 0, y: 15, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5326,7 +5326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f145c046263234e95e6fcdc18adffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSpeed: 1
+  spawnSpeed: 1.5
   enemy: {fileID: 6211043946805120877, guid: 14275787b2c117044b85b47699b94e69, type: 3}
   EnemyY: 0.5
 --- !u!1001 &658540894
@@ -10274,7 +10274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507702396}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5847103, y: -0.000000019740355, z: 0.000000014228043, w: 0.8112422}
+  m_LocalRotation: {x: 0.5847103, y: 0.000000019740359, z: -0.0000000142280445, w: 0.8112422}
   m_LocalPosition: {x: 0, y: 15, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
