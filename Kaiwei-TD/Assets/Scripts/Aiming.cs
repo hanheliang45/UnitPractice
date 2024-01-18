@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal.Internal;
 
-public class Gun : MonoBehaviour
+public class Aiming : MonoBehaviour
 {
     [SerializeField] float range;
     [SerializeField] LayerMask enemyLayer;
@@ -19,10 +19,10 @@ public class Gun : MonoBehaviour
     void Update()
     {
         //this.Aim();
-        this.Aiming();
+        this.Rotating();
         this.Aim2();
     }
-    private void Aiming() 
+    private void Rotating() 
     {
         if (this.targetEnemy == null) 
         {

@@ -7,7 +7,7 @@ public class GunFirePoint : MonoBehaviour
 
 
     float stopWatch = 0;
-    [SerializeField] Gun gun;
+    [SerializeField] Aiming gun;
     [SerializeField] Transform copy;
     [SerializeField] float fireSpeed;
     // Start is called before the first frame update
