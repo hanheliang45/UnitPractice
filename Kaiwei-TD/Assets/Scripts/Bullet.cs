@@ -26,6 +26,8 @@ public class Bullet : MonoBehaviour
         Vector3 direction = (enemyP-Myposition).normalized;
         this.transform.position += direction * bulletSpeed*Time.deltaTime;
 
+        this.transform.forward = direction;
+
         if (Vector3.Distance(Myposition, enemyP) <= 0.05)
         {
             Debug.Log("HIT!!!");
