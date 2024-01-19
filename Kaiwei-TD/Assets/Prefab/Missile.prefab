@@ -130,3 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 5
   bulletDamage: 20
+  IsMissle: 1
+  explosionRange: 3
+  inExplosionDamage: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64

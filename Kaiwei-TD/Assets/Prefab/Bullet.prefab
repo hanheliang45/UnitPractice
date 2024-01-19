@@ -46,8 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 10
-  enemy: {fileID: 6211043946805120877, guid: 14275787b2c117044b85b47699b94e69, type: 3}
   bulletDamage: 30
+  IsMissle: 0
+  explosionRange: 10
+  inExplosionDamage: 20
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &2259372998210637700
 GameObject:
   m_ObjectHideFlags: 0
