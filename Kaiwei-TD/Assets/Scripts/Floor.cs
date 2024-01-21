@@ -16,7 +16,7 @@ public class Floor : MonoBehaviour
     private void OnMouseEnter()
     {
         meshRenderer.material = WhenSelected;
-        WeoponBuilder.instance.SetFloor(this);
+        WeaponBuilder.instance.SetFloor(this);
     }
     private void OnMouseExit() 
     {
