@@ -7,12 +7,18 @@ public class WeaponBuilder : MonoBehaviour
     public static WeaponBuilder instance;
     [SerializeField] Transform gun;
     private Floor SelectedFloor;
+    private Transform SelectedWeapon;
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (SelectedWeapon == null) 
         {
-            Instantiate(gun,this.SelectedFloor.transform.position,Quaternion.identity);
+            return;
         }
+        if (!Input.GetMouseButtonDown(0)) 
+        {
+            return;
+        }
+        Instantiate(SelectedWeapon, this.SelectedFloor.transform.position,Quaternion.identity);
     }
 
     private void Awake()
@@ -22,5 +28,9 @@ public class WeaponBuilder : MonoBehaviour
     public void SetFloor(Floor floor) 
     {
         SelectedFloor = floor;
+    }
+    public void SetWeapon(Transform selectedWeapon) 
+    {
+        SelectedWeapon = selectedWeapon;
     }
 }
