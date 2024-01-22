@@ -5,7 +5,8 @@ using UnityEngine;
 public class WeaponBuilder : MonoBehaviour
 {
     public static WeaponBuilder instance;
-    [SerializeField] Transform gun;
+    [SerializeField] List<WeaponSO> WeaponList;
+
     private Floor SelectedFloor;
     private Transform SelectedWeapon;
     private void Update()
