@@ -34,7 +34,6 @@ public class Bullet : MonoBehaviour
 
         if (Vector3.Distance(Myposition, enemyP) <= 0.05)
         {
-            Debug.Log("HIT!!!");
             Destroy(this.gameObject);
             if (IsMissle) 
             {

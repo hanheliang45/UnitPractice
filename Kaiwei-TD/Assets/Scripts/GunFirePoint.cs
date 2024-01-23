@@ -27,7 +27,6 @@ public class GunFirePoint : MonoBehaviour
         }
         if (stopWatch >= fireSpeed)
         {
-            Debug.Log("Pew! Pew!! Pew!!!");
             Transform b = Instantiate(copy, transform.position, Quaternion.identity);
             stopWatch = 0;
             b.GetComponent<Bullet>().SetEnemy(enemy);

@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour
             if (targetid == WayPointList.Count) 
             {
                 Destroy(this.gameObject);
-                Debug.Log("!!!!!");
             }
         }
     }

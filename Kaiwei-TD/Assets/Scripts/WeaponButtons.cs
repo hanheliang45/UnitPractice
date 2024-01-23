@@ -14,6 +14,8 @@ public class WeaponButtons : MonoBehaviour
         {
             Transform newButton = Instantiate(ButtonTemplate, this.transform);
             newButton.Find("Image").GetComponent<Image>().sprite = weaponType.sprite;
+            newButton.GetComponent<Button>().onClick.AddListener
+            (() => { WeaponBuilder.instance.SetWeapon(weaponType.Prefab); });
         }
         ButtonTemplate.gameObject.SetActive(false);
     }
