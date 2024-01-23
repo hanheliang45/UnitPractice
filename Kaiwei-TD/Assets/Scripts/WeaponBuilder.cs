@@ -34,4 +34,8 @@ public class WeaponBuilder : MonoBehaviour
     {
         SelectedWeapon = selectedWeapon;
     }
+    public List<WeaponSO> GetWeaponList() 
+    {
+        return WeaponList;
+    }
 }
