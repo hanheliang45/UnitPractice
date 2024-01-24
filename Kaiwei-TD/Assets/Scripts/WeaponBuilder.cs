@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WeaponBuilder : MonoBehaviour
 {
+    public event EventHandler OnSelection;
+
     public static WeaponBuilder instance;
     [SerializeField] List<WeaponSO> WeaponList;
 
@@ -32,6 +35,12 @@ public class WeaponBuilder : MonoBehaviour
     }
     public void SetWeapon(Transform selectedWeapon) 
     {
+        if (SelectedWeapon == selectedWeapon) 
+        {
+            OnSelection?.Invoke(this,null);
+            SelectedWeapon = null;
+            return;
+        }
         SelectedWeapon = selectedWeapon;
     }
     public List<WeaponSO> GetWeaponList() 

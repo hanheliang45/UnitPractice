@@ -15,9 +15,21 @@ public class WeaponButtons : MonoBehaviour
             Transform newButton = Instantiate(ButtonTemplate, this.transform);
             newButton.Find("Image").GetComponent<Image>().sprite = weaponType.sprite;
             newButton.GetComponent<Button>().onClick.AddListener
-            (() => { WeaponBuilder.instance.SetWeapon(weaponType.Prefab); });
+            (() => {
+            newButton.Find("WhenSelected").gameObject.SetActive(true);
+            WeaponBuilder.instance.SetWeapon(weaponType.Prefab); });
+
+            WeaponBuilder.instance.OnSelection += WeaponBuilder_OnSelection;
         }
         ButtonTemplate.gameObject.SetActive(false);
+    }
+
+    private void WeaponBuilder_OnSelection(object sender, System.EventArgs e)
+    {
+        foreach (Transform ButtonOutline in this.transform) 
+        {
+            ButtonOutline.Find("WhenSelected").gameObject.SetActive(false);
+        }    
     }
 
     // Update is called once per frame
