@@ -8,13 +8,5 @@ public class Test : MonoBehaviour
     [SerializeField] Transform missle;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y)) 
-        {
-            WeaponBuilder.instance.SetWeapon(gun);
-        }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            WeaponBuilder.instance.SetWeapon(missle );
-        }
     }
 }

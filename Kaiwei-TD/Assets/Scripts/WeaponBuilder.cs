@@ -11,10 +11,10 @@ public class WeaponBuilder : MonoBehaviour
     [SerializeField] List<WeaponSO> WeaponList;
 
     private Floor SelectedFloor;
-    private Transform SelectedWeapon;
+    private WeaponSO selectedWeapon;
     private void Update()
     {
-        if (SelectedWeapon == null) 
+        if (selectedWeapon == null) 
         {
             return;
         }
@@ -22,7 +22,7 @@ public class WeaponBuilder : MonoBehaviour
         {
             return;
         }
-        Instantiate(SelectedWeapon, this.SelectedFloor.transform.position,Quaternion.identity);
+        Instantiate(selectedWeapon.Prefab, this.SelectedFloor.transform.position,Quaternion.identity);
     }
 
     private void Awake()
@@ -33,20 +33,24 @@ public class WeaponBuilder : MonoBehaviour
     {
         SelectedFloor = floor;
     }
-    public void SetWeapon(Transform selectedWeapon) 
+    public void SetWeapon(WeaponSO selectedWeapon) 
     {
-        if (SelectedWeapon == selectedWeapon) 
+        if (this.selectedWeapon == selectedWeapon) 
         {
-            SelectedWeapon = null;
+            this.selectedWeapon = null;
         }
         else
         {
-        SelectedWeapon = selectedWeapon;
+        this.selectedWeapon = selectedWeapon;
         }
         OnSelection?.Invoke(this, null);
     }
     public List<WeaponSO> GetWeaponList() 
     {
         return WeaponList;
+    }
+    public WeaponSO GetSelectedWeapon() 
+    {
+        return selectedWeapon;
     }
 }
