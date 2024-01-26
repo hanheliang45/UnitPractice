@@ -16,8 +16,9 @@ public class WeaponButtons : MonoBehaviour
             newButton.Find("Image").GetComponent<Image>().sprite = weaponType.sprite;
             newButton.GetComponent<Button>().onClick.AddListener
             (() => {
+            WeaponBuilder.instance.SetWeapon(weaponType.Prefab);
             newButton.Find("WhenSelected").gameObject.SetActive(true);
-            WeaponBuilder.instance.SetWeapon(weaponType.Prefab); });
+            });
 
             WeaponBuilder.instance.OnSelection += WeaponBuilder_OnSelection;
         }

@@ -37,11 +37,13 @@ public class WeaponBuilder : MonoBehaviour
     {
         if (SelectedWeapon == selectedWeapon) 
         {
-            OnSelection?.Invoke(this,null);
             SelectedWeapon = null;
-            return;
         }
+        else
+        {
         SelectedWeapon = selectedWeapon;
+        }
+        OnSelection?.Invoke(this, null);
     }
     public List<WeaponSO> GetWeaponList() 
     {
