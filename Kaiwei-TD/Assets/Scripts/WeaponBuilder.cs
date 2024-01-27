@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
 
 public class WeaponBuilder : MonoBehaviour
 {
@@ -18,13 +19,21 @@ public class WeaponBuilder : MonoBehaviour
         {
             return;
         }
+        if (SelectedFloor == null) 
+        {
+            return;
+        }
+        if (EventSystem.current.IsPointerOverGameObject()) 
+        {
+            return;
+        }
         if (!Input.GetMouseButtonDown(0)) 
         {
             return;
         }
         Instantiate(selectedWeapon.Prefab, this.SelectedFloor.transform.position,Quaternion.identity);
     }
-
+    
     private void Awake()
     {
         instance = this;    

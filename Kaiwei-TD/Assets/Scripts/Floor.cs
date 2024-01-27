@@ -20,6 +20,7 @@ public class Floor : MonoBehaviour
     }
     private void OnMouseExit() 
     {
+        WeaponBuilder.instance.SetFloor(null);
         meshRenderer.material = normalMaterial;
     }
 }
