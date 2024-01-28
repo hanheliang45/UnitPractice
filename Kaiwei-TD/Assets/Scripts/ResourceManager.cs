@@ -16,12 +16,17 @@ public class ResourceManager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
+    }
+
+    public int GetGold()
+    {
+        return gold;
     }
 
     public void EarnGold(int earnedGold) 
@@ -29,5 +34,11 @@ public class ResourceManager : MonoBehaviour
         gold += earnedGold;
         Debug.Log(gold);
         OnEarnGold?.Invoke(this,gold);
+    }
+
+    public void SpendGold(int goldNeeded) 
+    {
+        gold -= goldNeeded;
+        OnEarnGold?.Invoke(this, gold);
     }
 }

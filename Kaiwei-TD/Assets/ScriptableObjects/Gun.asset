@@ -15,3 +15,4 @@ MonoBehaviour:
   Prefab: {fileID: 8054256185453626558, guid: 3668bc6822c5ac342bcb110f65d9c2fc, type: 3}
   sprite: {fileID: 21300000, guid: 11a0958a4c16d1f41b2331b6d7d9986a, type: 3}
   Name: GUN
+  goldNeededToBuild: 120

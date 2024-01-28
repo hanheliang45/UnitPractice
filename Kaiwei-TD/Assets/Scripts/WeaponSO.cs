@@ -7,4 +7,5 @@ public class WeaponSO : ScriptableObject
     public Transform Prefab;
     public Sprite sprite;
     public string Name;
+    public int goldNeededToBuild;
 }

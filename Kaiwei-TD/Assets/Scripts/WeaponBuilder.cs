@@ -9,11 +9,12 @@ public class WeaponBuilder : MonoBehaviour
 
     public static WeaponBuilder instance;
     [SerializeField] List<WeaponSO> WeaponList;
-
     private Floor selectedFloor;
     private WeaponSO selectedWeapon;
     private void Update()
     {
+        
+        
         if (selectedWeapon == null) 
         {
             return;
@@ -34,6 +35,12 @@ public class WeaponBuilder : MonoBehaviour
         {
             return;
         }
+        int goldNeeded = this.selectedWeapon.goldNeededToBuild;
+        if (ResourceManager.instance.GetGold() < goldNeeded)
+        {
+            return;
+        }
+        ResourceManager.instance.SpendGold(goldNeeded);
         Transform newWeapon = Instantiate(selectedWeapon.Prefab, this.selectedFloor.transform.position,Quaternion.identity);
         selectedFloor.SetWeapon(newWeapon);
     }
