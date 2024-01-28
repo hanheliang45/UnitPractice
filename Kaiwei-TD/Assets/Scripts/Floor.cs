@@ -8,6 +8,7 @@ public class Floor : MonoBehaviour
     [SerializeField] Material WhenSelected;
     MeshRenderer meshRenderer;
     Material normalMaterial;
+    Transform weapon;
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -22,5 +23,13 @@ public class Floor : MonoBehaviour
     {
         WeaponBuilder.instance.SetFloor(null);
         meshRenderer.material = normalMaterial;
+    }
+    public void SetWeapon(Transform weapon) 
+    {
+        this.weapon = weapon;
+    }
+    public Transform GetWeapon() 
+    {
+        return weapon; 
     }
 }

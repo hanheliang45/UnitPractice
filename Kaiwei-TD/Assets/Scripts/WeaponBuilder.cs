@@ -1,7 +1,6 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using UnityEngine.EventSystems;
 
 public class WeaponBuilder : MonoBehaviour
@@ -11,7 +10,7 @@ public class WeaponBuilder : MonoBehaviour
     public static WeaponBuilder instance;
     [SerializeField] List<WeaponSO> WeaponList;
 
-    private Floor SelectedFloor;
+    private Floor selectedFloor;
     private WeaponSO selectedWeapon;
     private void Update()
     {
@@ -19,7 +18,11 @@ public class WeaponBuilder : MonoBehaviour
         {
             return;
         }
-        if (SelectedFloor == null) 
+        if (selectedFloor == null) 
+        {
+            return;
+        }
+        if (selectedFloor.GetWeapon() != null) 
         {
             return;
         }
@@ -31,7 +34,8 @@ public class WeaponBuilder : MonoBehaviour
         {
             return;
         }
-        Instantiate(selectedWeapon.Prefab, this.SelectedFloor.transform.position,Quaternion.identity);
+        Transform newWeapon = Instantiate(selectedWeapon.Prefab, this.selectedFloor.transform.position,Quaternion.identity);
+        selectedFloor.SetWeapon(newWeapon);
     }
     
     private void Awake()
@@ -40,7 +44,7 @@ public class WeaponBuilder : MonoBehaviour
     }
     public void SetFloor(Floor floor) 
     {
-        SelectedFloor = floor;
+        selectedFloor = floor;
     }
     public void SetWeapon(WeaponSO selectedWeapon) 
     {
