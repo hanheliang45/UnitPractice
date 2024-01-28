@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour
         enemyHealth -= damage;
         if (enemyHealth <= 0) 
         {
+            ResourceManager.instance.EarnGold(50);
             Destroy(this.gameObject);
         }
         OnDamage?.Invoke(this,((float)enemyHealth)/health);
