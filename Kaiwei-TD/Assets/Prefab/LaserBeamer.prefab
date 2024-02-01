@@ -130,7 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiming: {fileID: 6168249339504009325}
   laserDamage: 1
-  damageSpeed: 0.05
+  damageSpeed: 0.08
+  SlowDownEnemy: 30
 --- !u!1 &1555425040950757332
 GameObject:
   m_ObjectHideFlags: 0

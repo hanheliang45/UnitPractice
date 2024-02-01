@@ -7,6 +7,7 @@ public class LaserPoint : MonoBehaviour
     [SerializeField] Aiming aiming;
     [SerializeField] int laserDamage;
     [SerializeField] float damageSpeed;
+    [SerializeField] float SlowDownEnemy;
     float stopWatch;
     void Start()
     {
@@ -32,6 +33,8 @@ public class LaserPoint : MonoBehaviour
     public void Hit(Transform targetEnemy) 
     {
         Debug.Log("zZzZzZzZz");
-        targetEnemy.parent.GetComponent<Enemy>().TakeDamage(laserDamage);
+        Enemy e = targetEnemy.parent.GetComponent<Enemy>();
+        e.TakeDamage(laserDamage);
+        e.Slow(SlowDownEnemy/100f);
     }
 }

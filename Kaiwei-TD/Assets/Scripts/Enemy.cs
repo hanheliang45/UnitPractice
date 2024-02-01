@@ -7,14 +7,19 @@ public class Enemy : MonoBehaviour
 {
     public event EventHandler<float> OnDamage;
     [SerializeField] int health;
-    int targetid = 0;
     [SerializeField] float moveSpeed;
+    [SerializeField] float slowDuration;
+    int targetid = 0;
     int enemyHealth;
+    float slowTime;
+    float realMoveSpeed;
+    bool isSlow = false;
     
     private List<Transform> WayPointList; 
     private void Start()
     {
-    enemyHealth = health;
+        realMoveSpeed = moveSpeed;
+        enemyHealth = health;
         WayPointList = new List<Transform>();
         foreach (Transform t in WayPoints.instance.transform)
         { 
@@ -26,7 +31,15 @@ public class Enemy : MonoBehaviour
     {
         
         this.MoveTo(WayPointList[targetid]);
-        
+        if( isSlow == true)
+        {
+            slowTime += Time.deltaTime;
+        }
+        if (slowTime >= slowDuration)
+        {
+            isSlow = false;
+            moveSpeed = realMoveSpeed;
+        }
     }
     void MoveTo(Transform target) 
     {
@@ -58,6 +71,13 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
         OnDamage?.Invoke(this,((float)enemyHealth)/health);
+    }
+
+    public void Slow(float slowPercent) 
+    {
+        moveSpeed = realMoveSpeed * slowPercent;
+        isSlow = true;
+        slowTime =  0;
     }
     
 }
