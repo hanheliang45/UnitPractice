@@ -32,7 +32,7 @@ public class ResourceManager : MonoBehaviour
     public void EarnGold(int earnedGold) 
     {
         gold += earnedGold;
-        Debug.Log(gold);
+        //Debug.Log(gold);
         OnEarnGold?.Invoke(this,gold);
     }
 

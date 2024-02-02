@@ -33,7 +33,7 @@ public class LaserPoint : MonoBehaviour
 
     public void Hit(Transform targetEnemy) 
     {
-        Debug.Log("zZzZzZzZz");
+        //Debug.Log("zZzZzZzZz");
         Enemy e = targetEnemy.parent.GetComponent<Enemy>();
         e.TakeDamage(laserDamage);
         e.Slow(SlowDownEnemy/100f, slowDuration);
