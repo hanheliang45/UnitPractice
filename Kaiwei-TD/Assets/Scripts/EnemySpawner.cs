@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    float stopWatch = 0;
     [SerializeField] float spawnSpeed;
     [SerializeField] Transform enemy;
     [SerializeField] float EnemyY;
+    int enemySpawned;
+    float stopWatch = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,9 @@ public class EnemySpawner : MonoBehaviour
             //newEnemy.transform.position = this.transform.position;
             newEnemy.transform.position = new Vector3(this.transform.position.x, EnemyY, this.transform.position.z);
             stopWatch = 0;
+            enemySpawned++;
         }
+        
         stopWatch += Time.deltaTime;
     }
 }

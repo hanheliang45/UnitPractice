@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
     public event EventHandler<float> OnDamage;
     [SerializeField] int health;
     [SerializeField] float moveSpeed;
-    [SerializeField] float slowDuration;
     int targetid = 0;
     int enemyHealth;
+    float slowDuration;
     float slowTime;
     float realMoveSpeed;
     bool isSlow = false;
@@ -73,11 +73,12 @@ public class Enemy : MonoBehaviour
         OnDamage?.Invoke(this,((float)enemyHealth)/health);
     }
 
-    public void Slow(float slowPercent) 
+    public void Slow(float slowPercent,float slowDuration) 
     {
         moveSpeed = realMoveSpeed * slowPercent;
         isSlow = true;
         slowTime =  0;
+        this.slowDuration = slowDuration;
     }
     
 }

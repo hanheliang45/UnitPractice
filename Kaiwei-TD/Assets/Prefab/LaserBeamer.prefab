@@ -132,6 +132,7 @@ MonoBehaviour:
   laserDamage: 1
   damageSpeed: 0.08
   SlowDownEnemy: 30
+  slowDuration: 1
 --- !u!1 &1555425040950757332
 GameObject:
   m_ObjectHideFlags: 0
