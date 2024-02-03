@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserPoint : MonoBehaviour
 {
+    private LineRenderer laser;
     [SerializeField] Aiming aiming;
     [SerializeField] int laserDamage;
     [SerializeField] float damageSpeed;
@@ -12,7 +13,8 @@ public class LaserPoint : MonoBehaviour
     float stopWatch;
     void Start()
     {
-             
+        laser = GetComponent<LineRenderer>();         
+        laser.enabled = false;
     }
 
    
@@ -21,6 +23,7 @@ public class LaserPoint : MonoBehaviour
         Transform targetEnemy = aiming.GetEnemy();
         if (targetEnemy == null) 
         {
+            laser.enabled = false;
             return;
         }
         if (stopWatch > damageSpeed) 
@@ -29,6 +32,14 @@ public class LaserPoint : MonoBehaviour
             stopWatch = 0;
         }
             stopWatch += Time.deltaTime;
+            ShowLaser(targetEnemy);
+    }
+
+    void ShowLaser(Transform targetEnemy) 
+    {
+        laser.SetPosition(0,this.transform.position);
+        laser.SetPosition(1, targetEnemy.position);
+        laser.enabled = true;
     }
 
     public void Hit(Transform targetEnemy) 
