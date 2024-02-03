@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class LaserPoint : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class LaserPoint : MonoBehaviour
     [SerializeField] float damageSpeed;
     [SerializeField] float SlowDownEnemy;
     [SerializeField] float slowDuration;
+    [SerializeField] LayerMask enemyL;
     float stopWatch;
     void Start()
     {
@@ -38,8 +40,23 @@ public class LaserPoint : MonoBehaviour
     void ShowLaser(Transform targetEnemy) 
     {
         laser.SetPosition(0,this.transform.position);
-        laser.SetPosition(1, targetEnemy.position);
+        laser.SetPosition(1,DetectEnemy(targetEnemy));
         laser.enabled = true;
+    }
+
+    Vector3 DetectEnemy(Transform targetEnemy) 
+    {
+        RaycastHit[] hits = Physics.RaycastAll
+        (transform.position,targetEnemy.position + Vector3.up * 0.5f - transform.position,100,enemyL);
+
+        foreach (RaycastHit hit in hits) 
+        {
+            if (hit.transform == targetEnemy) 
+            {
+                return hit.point;
+            }
+        }
+        return targetEnemy.position;
     }
 
     public void Hit(Transform targetEnemy) 

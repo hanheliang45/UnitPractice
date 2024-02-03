@@ -134,6 +134,9 @@ MonoBehaviour:
   damageSpeed: 0.08
   SlowDownEnemy: 30
   slowDuration: 1
+  enemyL:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!120 &4395683017092446083
 LineRenderer:
   serializedVersion: 2
@@ -199,21 +202,21 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.17821954, g: 0.039215676, b: 0.7490196, a: 1}
+      key1: {r: 0.59607846, g: 0.1843137, b: 0.5453102, a: 1}
+      key2: {r: 0.5943396, g: 0.286775, b: 0.18316123, a: 0}
+      key3: {r: 0.59607846, g: 0.4860985, b: 0.1843137, a: 0}
+      key4: {r: 0.44562754, g: 0.59607846, b: 0.1843137, a: 0}
+      key5: {r: 0.1843137, g: 0.59607846, b: 0.43191394, a: 0}
+      key6: {r: 0.1843137, g: 0.44974804, b: 0.59607846, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
+      ctime1: 6746
+      ctime2: 16769
+      ctime3: 27563
+      ctime4: 37008
+      ctime5: 46838
+      ctime6: 57632
       ctime7: 0
       atime0: 0
       atime1: 65535
@@ -224,8 +227,8 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
-      m_NumColorKeys: 2
+      m_ColorSpace: 0
+      m_NumColorKeys: 7
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
