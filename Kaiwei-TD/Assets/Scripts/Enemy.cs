@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
             if (targetid == WayPointList.Count) 
             {
                 Destroy(this.gameObject);
+                LifeManager.instance.LoseLife();
             }
         }
     }
@@ -67,6 +68,7 @@ public class Enemy : MonoBehaviour
         enemyHealth -= damage;
         if (enemyHealth <= 0) 
         {
+            LifeManager.instance.LoseLife();
             ResourceManager.instance.EarnGold(30);
             Destroy(this.gameObject);
         }
