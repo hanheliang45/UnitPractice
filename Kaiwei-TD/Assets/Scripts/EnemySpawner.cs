@@ -25,7 +25,6 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (enemySpawned == enemysPerWave) 
         {
             canSpawn = false;  
@@ -42,6 +41,7 @@ public class EnemySpawner : MonoBehaviour
             waveNumber++;
             Debug.Log(waveNumber);
             OnNewWave?.Invoke(this,waveNumber);
+            enemysPerWave *= 2;
         }
         stopWatch += Time.deltaTime;
         if (stopWatch >= spawnSpeed)

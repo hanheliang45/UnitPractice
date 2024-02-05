@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public event EventHandler<float> OnDamage;
     [SerializeField] int health;
     [SerializeField] float moveSpeed;
+    [SerializeField] int goldEarnAmount;
     int targetid = 0;
     int enemyHealth;
     float slowDuration;
@@ -68,8 +69,7 @@ public class Enemy : MonoBehaviour
         enemyHealth -= damage;
         if (enemyHealth <= 0) 
         {
-            LifeManager.instance.LoseLife();
-            ResourceManager.instance.EarnGold(30);
+            ResourceManager.instance.EarnGold(goldEarnAmount);
             Destroy(this.gameObject);
         }
         OnDamage?.Invoke(this,((float)enemyHealth)/health);
