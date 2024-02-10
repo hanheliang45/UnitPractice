@@ -53,15 +53,7 @@ public class EnemySpawner : MonoBehaviour
                 return;
             }
             int spawningNumber = UnityEngine.Random.Range(1, 100);
-            Transform chosenEnemy;
-            if (spawningNumber <= 50) 
-            {
-                chosenEnemy = enemy;
-            }
-            else
-            {
-                chosenEnemy = turtleEnemy;
-            }
+            Transform chosenEnemy = enemySpawned <= 50 ? enemy : turtleEnemy;
             Transform newEnemy = Instantiate(chosenEnemy, this.transform);
             //newEnemy.transform.position = this.transform.position;
             newEnemy.transform.position = new Vector3(this.transform.position.x, EnemyY, this.transform.position.z);
