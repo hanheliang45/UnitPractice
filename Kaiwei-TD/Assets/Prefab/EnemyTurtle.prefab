@@ -578,7 +578,7 @@ Animator:
   m_GameObject: {fileID: 5016732993566233157}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 599b2dc9e6c44a8ebc02ddea1f18d215, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b5ad8d872cf3fe4ba65d8bb3386d6dc, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 260
-  moveSpeed: 1
+  moveSpeed: 100
   goldEarnAmount: 50
 --- !u!1 &5453835547288110330
 GameObject:

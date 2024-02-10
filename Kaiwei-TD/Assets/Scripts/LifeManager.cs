@@ -7,6 +7,7 @@ using UnityEngine;
 public class LifeManager : MonoBehaviour
 {
     public static LifeManager instance;
+    public event EventHandler OnLose;
     public event EventHandler<int> OnLoseLife;
     [SerializeField] int Life;
 
@@ -34,6 +35,7 @@ public class LifeManager : MonoBehaviour
         {
             Debug.Log("Fail =<-.->=");
             Time.timeScale = 0;
+            OnLose?.Invoke(this,null);
         }
     }
 }

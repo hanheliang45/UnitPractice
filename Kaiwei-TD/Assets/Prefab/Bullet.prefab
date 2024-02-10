@@ -53,6 +53,8 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  MissleDamageOffset: 100
+  BulletDamageOffset: 100
 --- !u!1 &2259372998210637700
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,11 +10,16 @@ public class Bullet : MonoBehaviour
     [SerializeField] float explosionRange;
     [SerializeField] int inExplosionDamage;
     [SerializeField] LayerMask enemyLayer;
+    [SerializeField] float MissleDamageOffset;
+    [SerializeField] float BulletDamageOffset;
+    int realInExplosionDamage;
+    int realBulletDamage;
     Transform enemy;
     // Start is called before the first frame update
     void Start()
     {
-                
+        realBulletDamage = bulletDamage;
+        realInExplosionDamage = inExplosionDamage;            
     }
 
     // Update is called once per frame
@@ -40,11 +45,15 @@ public class Bullet : MonoBehaviour
                 Collider[] InExplosion = Physics.OverlapSphere(transform.position,explosionRange,enemyLayer);
                 foreach (Collider enemy in InExplosion) 
                 {
-                    enemy.transform.parent.GetComponent<Enemy>().TakeDamage(inExplosionDamage);
+                    realInExplosionDamage += (int)Random.Range(-MissleDamageOffset,MissleDamageOffset); 
+                    enemy.transform.parent.GetComponent<Enemy>().TakeDamage(realInExplosionDamage);
                 }
+                realInExplosionDamage = inExplosionDamage;
                 return;
             }
-            enemy.parent.GetComponent<Enemy>().TakeDamage(bulletDamage);
+            realBulletDamage += (int)Random.Range(-BulletDamageOffset,BulletDamageOffset);
+            enemy.parent.GetComponent<Enemy>().TakeDamage(realBulletDamage);
+            realBulletDamage = bulletDamage;
         }
         
     }
