@@ -1,16 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using UnityEngine.UIElements;
 
 public class EnemySpawner : MonoBehaviour
 {
     public event EventHandler<int> OnNewWave;
     [SerializeField] float spawnSpeed;
     [SerializeField] Transform enemy;
+    [SerializeField] Transform turtleEnemy;
     [SerializeField] float EnemyY;
     [SerializeField] int enemysPerWave;
-    [SerializeField] float timeBetweenWaves;
+    [SerializeField] float timeBetweenWaves; 
     int waveNumber = 1;
     int enemySpawned;
     float timeBetweenWavesTimer;
@@ -50,7 +52,17 @@ public class EnemySpawner : MonoBehaviour
             {
                 return;
             }
-            Transform newEnemy = Instantiate(enemy, this.transform);
+            int spawningNumber = UnityEngine.Random.Range(1, 100);
+            Transform chosenEnemy;
+            if (spawningNumber <= 50) 
+            {
+                chosenEnemy = enemy;
+            }
+            else
+            {
+                chosenEnemy = turtleEnemy;
+            }
+            Transform newEnemy = Instantiate(chosenEnemy, this.transform);
             //newEnemy.transform.position = this.transform.position;
             newEnemy.transform.position = new Vector3(this.transform.position.x, EnemyY, this.transform.position.z);
             stopWatch = 0;
