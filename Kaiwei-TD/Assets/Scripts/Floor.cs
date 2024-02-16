@@ -7,7 +7,8 @@ public class Floor : MonoBehaviour
 {
     [SerializeField] Material WhenSelected;
     MeshRenderer meshRenderer;
-    Material normalMaterial;
+    Material normalMaterial; 
+    WeaponSO weaponType;
     Transform weapon;
     void Start()
     {
@@ -18,11 +19,14 @@ public class Floor : MonoBehaviour
     {
         meshRenderer.material = WhenSelected;
         WeaponBuilder.instance.SetFloor(this);
+        WeaponSeller.instance.SetUnderPointerFloor(this);
+        
     }
     private void OnMouseExit() 
     {
         WeaponBuilder.instance.SetFloor(null);
         meshRenderer.material = normalMaterial;
+        WeaponSeller.instance.SetUnderPointerFloor(null);
     }
     public void SetWeapon(Transform weapon) 
     {
@@ -32,4 +36,16 @@ public class Floor : MonoBehaviour
     {
         return weapon; 
     }
+
+    public void SetWeaponType(WeaponSO weaponType)
+    {
+        SellButton.instance.SetWeaponType(weaponType);    
+    }
+
+    public void Clear() 
+    {
+        weapon = null;
+        weaponType = null;
+    }
+    
 }

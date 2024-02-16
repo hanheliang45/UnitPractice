@@ -6,14 +6,13 @@ using UnityEngine.EventSystems;
 public class WeaponBuilder : MonoBehaviour
 {
     public event EventHandler OnSelection;
-
+    
     public static WeaponBuilder instance;
     [SerializeField] List<WeaponSO> WeaponList;
     private Floor selectedFloor;
     private WeaponSO selectedWeapon;
     private void Update()
     {
-        
         
         if (selectedWeapon == null) 
         {
@@ -43,6 +42,7 @@ public class WeaponBuilder : MonoBehaviour
         ResourceManager.instance.SpendGold(goldNeeded);
         Transform newWeapon = Instantiate(selectedWeapon.Prefab, this.selectedFloor.transform.position,Quaternion.identity);
         selectedFloor.SetWeapon(newWeapon);
+        
     }
     
     private void Awake()
