@@ -14,6 +14,10 @@ public class WeaponSeller : MonoBehaviour
         instance = this;    
     }
 
+    private void Start()
+    {
+        panel.gameObject.SetActive(false);
+    }
     void Update()
     {
         if (!Input.GetMouseButtonDown(0)) 
@@ -32,7 +36,7 @@ public class WeaponSeller : MonoBehaviour
         panel.transform.position = underPointer.GetWeapon().position + Vector3.up*2;
         Debug.Log("Sellable :)");
         SellButton.instance.SetFloor(underPointer);
-        
+        panel.gameObject.SetActive(true);
     }
 
     public void SetUnderPointerFloor(Floor underPointer) 

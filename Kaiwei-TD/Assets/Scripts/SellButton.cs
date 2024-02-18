@@ -7,6 +7,7 @@ public class SellButton : MonoBehaviour
 {
     public static SellButton instance;
     [SerializeField] private int GoldGotBackPercent;
+    [SerializeField] private Transform panel;
     private WeaponSO weaponType;
     public Floor floor;
 
@@ -21,7 +22,7 @@ public class SellButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+               
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class SellButton : MonoBehaviour
             //weaponType.goldNeededToBuild*(GoldGotBackPercent/100)
             );
         floor = null;
-        
+        panel.gameObject.SetActive( false );
 
     }
 
