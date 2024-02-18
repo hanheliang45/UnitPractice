@@ -10,6 +10,7 @@ public class SellButton : MonoBehaviour
     [SerializeField] private Transform panel;
     private WeaponSO weaponType;
     public Floor floor;
+    Transform weapon;
 
 
 
@@ -38,8 +39,8 @@ public class SellButton : MonoBehaviour
         if (floor == null) { return; }
         Destroy(floor.GetWeapon().gameObject);
         floor.Clear();
-        ResourceManager.instance.EarnGold(50
-            //weaponType.goldNeededToBuild*(GoldGotBackPercent/100)
+        ResourceManager.instance.EarnGold(
+            weapon.GetComponent<WeaponIndentifer>().GetWeaponType().goldNeededToBuild*(GoldGotBackPercent/100)
             );
         floor = null;
         panel.gameObject.SetActive( false );
@@ -56,6 +57,10 @@ public class SellButton : MonoBehaviour
         this.floor = floor;    
     }
 
+    public void SetWeapon(Transform weapon)
+    {
+        this.weapon = weapon;
+    }
 
-   
+
 }

@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class WeaponIndentifer : MonoBehaviour
 {
+
     [SerializeField] WeaponSO weaponType;
-    // Start is called before the first frame update
-    void Start()
+
+    public WeaponSO GetWeaponType()
     {
-
+        return weaponType;
     }
-
-    public void 
 }

@@ -10,6 +10,7 @@ public class Floor : MonoBehaviour
     Material normalMaterial; 
     WeaponSO weaponType;
     Transform weapon;
+    
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -17,6 +18,7 @@ public class Floor : MonoBehaviour
     }
     private void OnMouseEnter()
     {
+        SellButton.instance.SetWeapon(weapon);
         meshRenderer.material = WhenSelected;
         WeaponBuilder.instance.SetFloor(this);
         WeaponSeller.instance.SetUnderPointerFloor(this);
@@ -24,6 +26,7 @@ public class Floor : MonoBehaviour
     }
     private void OnMouseExit() 
     {
+       
         WeaponBuilder.instance.SetFloor(null);
         meshRenderer.material = normalMaterial;
         WeaponSeller.instance.SetUnderPointerFloor(null);
@@ -47,5 +50,11 @@ public class Floor : MonoBehaviour
         weapon = null;
         weaponType = null;
     }
-    
+
+    public void SetWeaponType_2(WeaponSO weaponType) 
+    {
+        this.weaponType = weaponType;
+    }
+
+
 }

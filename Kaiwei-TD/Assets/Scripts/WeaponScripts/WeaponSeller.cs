@@ -6,8 +6,9 @@ using UnityEngine;
 public class WeaponSeller : MonoBehaviour
 {
     public static WeaponSeller instance;
-    public Floor underPointer;
     [SerializeField] private Transform panel;
+    public Floor underPointer;
+    Transform weapon;
     
     void Awake()
     {
@@ -32,7 +33,7 @@ public class WeaponSeller : MonoBehaviour
         {
             return;
         }
-
+   
         panel.transform.position = underPointer.GetWeapon().position + Vector3.up*2;
         Debug.Log("Sellable :)");
         SellButton.instance.SetFloor(underPointer);
@@ -43,4 +44,7 @@ public class WeaponSeller : MonoBehaviour
     {
         this.underPointer = underPointer;
     }
+
+
+
 }

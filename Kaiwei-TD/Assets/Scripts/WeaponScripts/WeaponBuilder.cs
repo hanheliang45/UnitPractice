@@ -42,7 +42,7 @@ public class WeaponBuilder : MonoBehaviour
         ResourceManager.instance.SpendGold(goldNeeded);
         Transform newWeapon = Instantiate(selectedWeapon.Prefab, this.selectedFloor.transform.position,Quaternion.identity);
         selectedFloor.SetWeapon(newWeapon);
-        
+        selectedFloor.SetWeaponType_2(selectedWeapon);
     }
     
     private void Awake()
@@ -73,4 +73,5 @@ public class WeaponBuilder : MonoBehaviour
     {
         return selectedWeapon;
     }
+    
 }
