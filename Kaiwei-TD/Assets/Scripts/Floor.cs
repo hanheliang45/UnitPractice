@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 public class Floor : MonoBehaviour
@@ -18,11 +20,16 @@ public class Floor : MonoBehaviour
     }
     private void OnMouseEnter()
     {
+       
+        UpGradeButton.instance.SetWeapon(weapon);
         SellButton.instance.SetWeapon(weapon);
         meshRenderer.material = WhenSelected;
         WeaponBuilder.instance.SetFloor(this);
         WeaponSeller.instance.SetUnderPointerFloor(this);
-        
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            UpGradeButton.instance.SetWeapon(weapon);    
+        }
     }
     private void OnMouseExit() 
     {

@@ -41,7 +41,7 @@ public class SellButton : MonoBehaviour
         floor.Clear();
         ResourceManager.instance.EarnGold(
             weapon.GetComponent<WeaponIndentifer>().GetWeaponType().goldNeededToBuild*(GoldGotBackPercent/100)
-            );
+            ); 
         floor = null;
         panel.gameObject.SetActive( false );
 

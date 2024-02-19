@@ -276,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504217229221188800}
   - component: {fileID: -1631698612961793094}
+  - component: {fileID: -5547170687530850772}
   m_Layer: 0
   m_Name: Missile Launcher
   m_TagString: Untagged
@@ -313,3 +314,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: {fileID: 11400000, guid: b3553038ad5015f40a573d7a20f2cdc0, type: 2}
+--- !u!114 &-5547170687530850772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6044570721391726024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732b3b47a5f4f014791140fb02ac7994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

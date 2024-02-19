@@ -61,7 +61,7 @@ public class WeaponBuilder : MonoBehaviour
         }
         else
         {
-        this.selectedWeapon = selectedWeapon;
+            this.selectedWeapon = selectedWeapon;
         }
         OnSelection?.Invoke(this, null);
     }

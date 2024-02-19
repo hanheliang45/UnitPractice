@@ -37,6 +37,7 @@ public class WeaponSeller : MonoBehaviour
         panel.transform.position = underPointer.GetWeapon().position + Vector3.up*2;
         Debug.Log("Sellable :)");
         SellButton.instance.SetFloor(underPointer);
+        UpGradeButton.instance.SetFloor(underPointer);
         panel.gameObject.SetActive(true);
     }
 
